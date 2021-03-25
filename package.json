@@ -4,7 +4,7 @@
   "description": "Basic AngularJS CRUD with password encrypt",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon server.js"
   },
   "repository": {
     "type": "git",
@@ -15,5 +15,12 @@
   "bugs": {
     "url": "https://github.com/Craken420/4.AngularJS_Node_Encrypt_CRUD/issues"
   },
-  "homepage": "https://github.com/Craken420/4.AngularJS_Node_Encrypt_CRUD#readme"
+  "homepage": "https://github.com/Craken420/4.AngularJS_Node_Encrypt_CRUD#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
 }
