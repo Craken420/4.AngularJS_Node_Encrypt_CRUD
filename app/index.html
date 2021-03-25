@@ -7,10 +7,17 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <script>document.write('<base href="' + document.location + '" />');</script>
-    <title>Restful Authentication with NodeJS & AngularJS</title>
+    <title>NodeJS & AngularJS CRUD</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
 </head>
 
-<body>
-    <h1>Hi, this is my Front-End Client</h1>
+<body ng-app="plunkerApp">
+    <div ng-controller="ContactsCtrl">
+        <h1>Hola</h1>
+        <h1>Welcome and {{greet}}</h1>
+    </div>
+    <script src="app.js"></script>
+    <script src="controllers/controller.js"></script>
+    <script src="services/service.js"></script>
 </body>
 </html>
