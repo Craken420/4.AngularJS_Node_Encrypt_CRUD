@@ -2,7 +2,12 @@
 <div>
     <h1>Contact List</h1>
     <a href="/contacts/new">ADD NEW CONTACT</a>
-    <ul data-ng-repeat="item in filteredData">
+    <br/><br/>
+    <div>
+        <input type="search" name="search" id="search"
+        placeholder="Search..." data-ng-model="search"/>
+    </div>
+    <ul data-ng-repeat="item in (filteredData | filter: search)">
         <li>
             <div>
                 <span>{{item.name[0]}}</span>
