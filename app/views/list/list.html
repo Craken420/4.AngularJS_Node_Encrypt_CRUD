@@ -7,16 +7,24 @@
         <input type="search" name="search" id="search"
         placeholder="Search..." data-ng-model="search"/>
     </div>
-    <ul data-ng-repeat="item in (filteredData | filter: search)">
-        <li>
-            <div>
-                <span>{{item.name[0]}}</span>
-                <h4 >{{item.name}}</h4>
-                <ul>
-                    <li><a href="#">✔ EDIT</a></li>
-                    <li><a>✖ DELETE</a></li>
-                </ul>
-            </div>
-        </li>
-    </ul>
+    <div>
+        <ul data-ng-repeat="item in (filteredData | filter: search)">
+            <li>
+                <div>
+                    <span>{{item.name[0]}}</span>
+                    <h4 >{{item.name}}</h4>
+                    <ul>
+                        <li><a href="#">✔ EDIT</a></li>
+                        <li><a>✖ DELETE</a></li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <pagination
+        ng-model="currentPage"
+        total-items="totalItems"
+        max-size="maxSize"
+        boundary-links="true">
+    </pagination>
 </div>
