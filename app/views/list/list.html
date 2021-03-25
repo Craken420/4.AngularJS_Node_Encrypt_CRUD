@@ -8,7 +8,7 @@
         placeholder="Search..." data-ng-model="search"/>
     </div>
     <div>
-        <ul data-ng-repeat="item in (filteredData | filter: search)">
+        <ul data-ng-repeat="item in filteredData">
             <li>
                 <div>
                     <span>{{item.name[0]}}</span>
