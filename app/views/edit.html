@@ -1,0 +1,27 @@
+<div>
+  <h1>Contact List</h1>
+  <form autocomplete="off" role="form" novalidate>
+    <fieldset>
+      <legend>Edit an item</legend>
+      <input type="hidden" data-ng-model="contact._id" />
+      <div>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" data-ng-model="contact.name"
+          placeholder="Your name" required/>
+      </div>
+      <div>
+        <label for="phone">Phone:</label>
+        <input type="text" id="phone" name="phone" data-ng-model="contact.phone"
+          required/>
+      </div>
+      <div>
+        <label for="address">Address:</label>
+        <textarea name="address" id="address" ng-model="contact.address" rows="10" required></textarea>
+      </div>
+      <div>
+        <input type="submit" value="UPDATE" />
+        <a href="/" >CANCEL</a>
+      </div>
+    </fieldset>
+  </form>
+</div>
