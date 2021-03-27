@@ -17,6 +17,11 @@ angular.module('plunkerApp',[
             templateUrl: 'views/new.html',
             controller: 'ContactsCtrl'
         })
+        // Update a contact
+        .when('/contacts/:id/edit', {
+            templateUrl: 'views/edit.html',
+            controller: 'ContactsCtrl'
+          })
         // Redirect to main route
         .otherwise({
           redirectTo: '/'
