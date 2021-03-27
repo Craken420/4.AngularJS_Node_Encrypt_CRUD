@@ -20,7 +20,8 @@ angular.module('plunkerApp',[
         // Update a contact
         .when('/contacts/:id/edit', {
             templateUrl: 'views/edit.html',
-            controller: 'ContactsCtrl'
+            controller: 'ContactsCtrl',
+            method: 'edit'
           })
         // Redirect to main route
         .otherwise({

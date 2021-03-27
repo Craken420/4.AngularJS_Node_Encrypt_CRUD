@@ -1,6 +1,6 @@
 angular.module('plunkerApp')
 .controller('ContactsCtrl',
-    function($scope, $filter, $location, ContactsService, listContacts) {
+    function($scope, $filter, $location, $route, $routeParams, ContactsService, listContacts) {
         /**
         * initial value of creation/alteration contact form
         * @type {Array}
@@ -27,10 +27,28 @@ angular.module('plunkerApp')
          };
 
          $scope.save = function(item) {
-            $scope.create({...item});
+            if(typeof item._id !== 'undefined')
+                $scope.update(item);
+            else
+                $scope.create({...item});
             $scope.reset();
             $location.path('/');
          };
+         /**
+        * Return a specific contact for edition
+        */
+        $scope.edit = function(){
+            var id = $routeParams.id;
+            $scope.contact = $filter('filter')(listContacts, {_id: id})[0];
+            window.scrollTo(0, 0);
+        };
+        /**
+        * Update a contact
+        * @param  {Object} item Contact informations
+        */
+        $scope.update = function( item ) {
+            listContacts = ContactsService.update(item);
+        };
         /**
         * Add pagination to contacts list
         */
@@ -52,6 +70,9 @@ angular.module('plunkerApp')
         $scope.init = function() {
             listContacts.concat($scope.filteredDataPages);
             $scope.reset();
+            if ($route.current.method !== undefined) {
+                $scope[$route.current.method]();
+            }
             $scope.totalItems = (listContacts.length * 10)/$scope.numPerPage;
         }
         $scope.init();
