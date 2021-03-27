@@ -3,6 +3,11 @@
     <h1>Contact List</h1>
     <a href="/contacts/new">ADD NEW CONTACT</a>
     <br/><br/>
+    <div data-ng-repeat="alert in alerts track by $index">
+        <button type="button" class="close" data-dismiss="alert"
+        aria-hidden="true" data-ng-click="closeAlertMessage($index)">×</button>
+        {{ alert.msg }}
+    </div>
     <div>
         <input type="search" name="search" id="search"
             placeholder="Search..." data-ng-model="search"/>

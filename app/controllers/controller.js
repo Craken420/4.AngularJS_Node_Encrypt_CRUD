@@ -1,6 +1,7 @@
 angular.module('plunkerApp')
 .controller('ContactsCtrl',
-    function($scope, $filter, $location, $route, $routeParams, ContactsService, listContacts) {
+    function($scope, $filter, $location, $route, $routeParams,
+        ContactsService, listContacts, AlertService) {
         /**
         * initial value of creation/alteration contact form
         * @type {Array}
@@ -64,12 +65,19 @@ angular.module('plunkerApp')
          $scope.delete = function(index) {
             confirmation = (typeof confirmation !== 'undefined') ? confirmation : true;
             if (confirmDelete(confirmation)) {
-                item = ContactsService.delete(index);
+                var message,
+                    item = ContactsService.delete(index);
                 if (!!item) {
+                    message = 'Contact "' + item.name + '" with id "' + item._id +
+                        '" was removed of your contact\'s list';
+                    AlertService.add('success', message, 1500);
                     $scope.init();
                     return true;
                 }
             }
+            AlertService.add('error',
+                'Houston, we have a problem. This operation cannot be executed correctly.',
+                5000);
             return false;
         };
 
