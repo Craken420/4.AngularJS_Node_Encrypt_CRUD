@@ -1,5 +1,6 @@
 angular.module('plunkerApp',[
     'ngRoute', // Adding `angular-route.js`
+    'ui.bootstrap'
 ])
 .config(function ( $locationProvider) {
     $locationProvider.html5Mode(true);
