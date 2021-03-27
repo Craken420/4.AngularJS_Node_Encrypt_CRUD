@@ -1,8 +1,18 @@
 angular.module('plunkerApp')
-.factory('ContactsService', function (listContacts) {
+.config(function ($cryptoProvider) {
+  var _key = '123456'
+  $cryptoProvider.setCryptographyKey(_key);
+})
+.factory('ContactsService', function (listContacts, $crypto) {
     var _items = listContacts;
 
     return {
+        encrypt: function (word) {
+          return $crypto.encrypt(word)
+        },
+        decrypt: function (word) {
+            return $crypto.decrypt(word)
+        },
         setListItems: function(items) {
           _items = items;
           return this;
@@ -12,8 +22,9 @@ angular.module('plunkerApp')
         },
         create: function (item) {
           item._id = _items.length;
+          item.password = this.encrypt(item['password']);
           _items.push(item);
-          console.log(_items)
+          console.log('_items: ', _items)
           return _items;
         },
         update: function (item) {

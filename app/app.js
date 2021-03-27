@@ -1,7 +1,8 @@
 angular.module('plunkerApp',[
     'ngRoute', // Adding `angular-route.js`
     'ui.bootstrap',
-    'keepr' // Adding `angular-keepr.js`,
+    'keepr', // Adding `angular-keepr.js`,
+    'mdo-angular-cryptography'
 ])
 .config(function ( $locationProvider) {
     $locationProvider.html5Mode(true);
