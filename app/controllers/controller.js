@@ -48,15 +48,27 @@ angular.module('plunkerApp')
             listContacts = ContactsService.update(item);
         };
         /**
+        * Method for access "window.confirm()"
+        * @param  {Boolean} confirmation boolean verificator for call "confirm" method
+        * @return {Boolean}
+        */
+         var confirmDelete = function(confirmation){
+            return confirmation ? confirm('This action is irreversible. Do you want to delete this contact?') : true;
+        };
+        /**
         * Remove a contact of contact list
         * @param  {Integer} index        `_id` value's contact
+        * @param  {Boolean} confirmation boolean verificator for call "confirm" method
         * @return {Boolean}
         */
          $scope.delete = function(index) {
-            item = ContactsService.delete(index);
-            if (!!item) {
-                $scope.init();
-                return true;
+            confirmation = (typeof confirmation !== 'undefined') ? confirmation : true;
+            if (confirmDelete(confirmation)) {
+                item = ContactsService.delete(index);
+                if (!!item) {
+                    $scope.init();
+                    return true;
+                }
             }
             return false;
         };
