@@ -15,7 +15,7 @@
                     <h4 >{{item.name}}</h4>
                     <ul>
                         <li><a href="/contacts/{{item._id}}/edit">✔ EDIT</a></li>
-                        <li><a>✖ DELETE</a></li>
+                        <li><a data-ng-click="delete(item._id);">✖ DELETE</a></li>
                     </ul>
                 </div>
             </li>
