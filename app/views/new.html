@@ -1,7 +1,7 @@
 <div>
   <div>
     <h1>Contact List</h1>
-    <form autocomplete="off" role="form" novalidate>
+    <form autocomplete="off" role="form" novalidate data-ng-submit="save(contact)">
       <fieldset>
         <legend>Insert an item</legend>
         <input type="hidden" data-ng-model="contact._id" />

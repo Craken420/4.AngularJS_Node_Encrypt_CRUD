@@ -1,8 +1,13 @@
 angular.module('plunkerApp')
-.factory('ContactsService', function () {
+.factory('ContactsService', function (listContacts) {
+    var _items = listContacts;
+
     return {
-      greet: function  (name) {
-        return 'Hi: ' + name;
+        create: function (item) {
+          item._id = _items.length;
+          _items.push(item);
+          console.log(_items)
+          return _items;
+        }
     }
-  }
 })
