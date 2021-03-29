@@ -3,6 +3,11 @@
     <h1>Contact List</h1>
     <a href="/contacts/new">ADD NEW CONTACT</a>
     <br/><br/>
+    <div data-ng-repeat="alert in alerts track by $index">
+        <button type="button" class="close" data-dismiss="alert"
+        aria-hidden="true" data-ng-click="closeAlertMessage($index)">×</button>
+        {{ alert.msg }}
+    </div>
     <div>
         <input type="search" name="search" id="search"
             placeholder="Search..." data-ng-model="search"/>
@@ -14,8 +19,8 @@
                     <span>{{item.name[0]}}</span>
                     <h4 >{{item.name}}</h4>
                     <ul>
-                        <li><a href="#">✔ EDIT</a></li>
-                        <li><a>✖ DELETE</a></li>
+                        <li><a href="/contacts/{{item._id}}/edit">✔ EDIT</a></li>
+                        <li><a data-ng-click="delete(item._id);">✖ DELETE</a></li>
                     </ul>
                 </div>
             </li>
