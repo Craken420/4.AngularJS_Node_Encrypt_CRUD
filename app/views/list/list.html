@@ -1,35 +1,40 @@
 
-<div>
-    <h1>Contact List</h1>
-    <a href="/contacts/new">ADD NEW CONTACT</a>
-    <br/><br/>
-    <div data-ng-repeat="alert in alerts track by $index">
-        <button type="button" class="close" data-dismiss="alert"
-        aria-hidden="true" data-ng-click="closeAlertMessage($index)">×</button>
-        {{ alert.msg }}
+<div class="row">
+    <div class="col-lg-6 col-lg-offset-3">
+        <div>
+            <h1 class="text-center">Contact List</h1>
+            <a class="btn btn-primary col-lg-12
+                col-md-12 col-sm-12 clearfix" href="/contacts/new">ADD NEW CONTACT</a>
+        </div>
+        <div class="alert alert-warning fade in"
+            data-ng-repeat="alert in alerts track by $index">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true"
+                data-ng-click="closeAlertMessage($index)">×</button>
+            {{ alert.msg }}
+        </div>
+        <div>
+            <input type="search" name="search" id="search" placeholder="Search..."
+                data-ng-model="search" class="form-control" />
+        </div>
+        <div data-ng-if="filteredData.length > 0">
+            <ul data-ng-repeat="item in filteredData">
+                <li>
+                    <div>
+                        <span>{{item.name[0]}}</span>
+                        <h4 >{{item.name}}</h4>
+                        <ul>
+                            <li><a href="/contacts/{{item._id}}/edit">✔ EDIT</a></li>
+                            <li><a data-ng-click="delete(item._id);">✖ DELETE</a></li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <pagination
+            ng-model="currentPage"
+            total-items="totalItems"
+            max-size="maxSize"
+            boundary-links="true">
+        </pagination>
     </div>
-    <div>
-        <input type="search" name="search" id="search"
-            placeholder="Search..." data-ng-model="search"/>
-    </div>
-    <div data-ng-if="filteredData.length > 0">
-        <ul data-ng-repeat="item in filteredData">
-            <li>
-                <div>
-                    <span>{{item.name[0]}}</span>
-                    <h4 >{{item.name}}</h4>
-                    <ul>
-                        <li><a href="/contacts/{{item._id}}/edit">✔ EDIT</a></li>
-                        <li><a data-ng-click="delete(item._id);">✖ DELETE</a></li>
-                    </ul>
-                </div>
-            </li>
-        </ul>
-    </div>
-    <pagination
-        ng-model="currentPage"
-        total-items="totalItems"
-        max-size="maxSize"
-        boundary-links="true">
-    </pagination>
 </div>

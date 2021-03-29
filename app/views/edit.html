@@ -1,56 +1,62 @@
-<div>
-  <h1>Contact List</h1>
+<div class="row">
+  <div class="col-lg-6 col-lg-offset-3">
+  <h1 class="text-center">Contact List</h1>
   <form autocomplete="off" role="form" name="crudOperations" novalidate
     data-ng-submit="save(contact)">
     <fieldset>
       <legend>Edit an item</legend>
       <input type="hidden" data-ng-model="contact._id" />
-      <div data-ng-class="{'has-error': crudOperations.name.$invalid
+      <div class="mb-3" data-ng-class="{'has-error': crudOperations.name.$invalid
         && crudOperations.name.$dirty, 'has-success': crudOperations.name.$valid
         && crudOperations.name.$dirty}">
-        <label for="name">Name:</label>
+        <label for="name" class="form-label">Name:</label>
         <input type="text" id="name" name="name" data-ng-model="contact.name"
-          placeholder="Your name" data-ng-class="{empty: contact.name.length === 0
+          class="form-control" placeholder="Your name"
+          data-ng-class="{empty: contact.name.length === 0
             || contact.name.length === undefined}" placeholder="Your name" required/>
         <div data-ng-if="crudOperations.name.$invalid && crudOperations.name.$dirty
           && !crudOperations.name.$focused">
-          <p>This field is required</p>
+          <p class="help-block">This field is required</p>
         </div>
       </div>
-      <div data-ng-class="{'has-error': crudOperations.phone.$invalid
+      <div class="mb-3" data-ng-class="{'has-error': crudOperations.phone.$invalid
         && crudOperations.phone.$dirty, 'has-success': crudOperations.phone.$valid
         && crudOperations.phone.$dirty}">
-        <label for="phone">Phone:</label>
+        <label for="phone" class="form-label">Phone:</label>
         <input type="text" id="phone" name="phone" data-ng-model="contact.phone"
           kp-mask='+99 (99) 9999-9999' kp-placeholder="+99 (99) 9999-9999"
-          data-ng-model="contact.phone"
+          data-ng-model="contact.phone" class="form-control"
           data-ng-class="{empty: contact.phone.length === 0
             || contact.phone.length === undefined}" required/>
         <div data-ng-if="crudOperations.phone.$invalid && crudOperations.phone.$dirty
           && !crudOperations.phone.$focused">
-          <p>This field is required</p>
+          <p class="help-block">This field is required</p>
         </div>
       </div>
-      <div data-ng-class="{'has-error': crudOperations.address.$invalid
+      <div class="mb-3" data-ng-class="{'has-error': crudOperations.address.$invalid
         && crudOperations.address.$dirty, 'has-success': crudOperations.address.$valid
         && crudOperations.address.$dirty}">
-        <label for="address">Address:</label>
-        <textarea name="address" id="address" ng-model="contact.address" rows="10"
+        <label for="address" class="form-label">Address:</label>
+        <textarea class="col-lg-12"
+          name="address" id="address" ng-model="contact.address" rows="5"
           data-ng-class="{empty: contact.address.length === 0
             || contact.address.length === undefined}" required></textarea>
         <div data-ng-if="crudOperations.address.$invalid && crudOperations.address.$dirty
           && !crudOperations.address.$focused">
-          <p>This field is required</p>
+          <p class="help-block">This field is required</p>
         </div>
       </div>
-      <div>
-        <div data-ng-if="crudOperations.$invalid && !crudOperations.data.$dirty">
+      <div class="form-group">
+        <div class="col-lg-12"
+          data-ng-if="crudOperations.$invalid && !crudOperations.data.$dirty">
           <p>You shall not pass =/</p>
           <p>You only can finish the operation if all fields required was populated correctly</p>
         </div>
-        <input type="submit" value="UPDATE"
-          data-ng-disabled="crudOperations.$invalid && !crudOperations.data.$dirty"/>
-        <a href="/" >CANCEL</a>
+          <input type="submit" value="UPDATE"
+            class="btn btn-primary clearfix"
+            data-ng-disabled="crudOperations.$invalid && !crudOperations.data.$dirty"/>
+          <a href="/" class="btn btn-danger">
+            CANCEL</a>
       </div>
     </fieldset>
   </form>
