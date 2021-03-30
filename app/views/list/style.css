@@ -5,7 +5,7 @@ ul { list-style-type: none; }
 a, a:link, a:visited, a:active, a:hover { text-decoration:none; }
 
 /* Configuracion */
-.container { width: 100%; height: 100%; }
+.box { width: 100%; height: 100%; }
 .list-container { background-color: rgb(170, 217, 233); padding: 10px;
     border-radius: 3%; height: 380px; }
 
@@ -29,3 +29,44 @@ li.contact-list, .card a { border-radius: 3%; }
     height: 80%;  color: white; text-align: center; }
 
 .card a:hover { background-color: rgb(63, 91, 182); }
+
+/* Responsive */
+@media (max-width: 1200px) {
+    .box { width: 80%; padding-left: 200px;}
+}
+/* Responsive */
+@media (max-width: 900px) {
+    .box { width: 90%; padding-left: 100px;}
+}
+@media (max-width: 690px) {
+    .box { position: relative; height: 700px; width: 100%; padding-left: 0; }
+    .list-container { width: 50%; height: 100%; position: absolute;
+        top: 50%; left: 50%; transform: translate(-50%, -50%); }
+
+    ul.contact-list { width: 100%; height: 33.33%; float: bottom; }
+    .card { display: flex; flex-direction: column;
+        justify-content: center; align-items: center;
+        width: 100%; height: 100%; }
+
+    .card img { width: 100%; height: 40%; }
+    .card .list-info { height: auto; }
+    .card .list-info-name { height: auto; font-size: 100%; }
+    .card ul { height: auto; }
+    .card a { font-size: 80%; }
+}
+@media (max-width: 500px) {
+    .list-container { width: 60%; }
+}
+@media (max-width: 340px) {
+    .list-container { width: 100%; }
+}
+@media (max-width: 240px) {
+    .card img { width: 100%; }
+    .card .list-info { padding: 5px; height: 100%; }
+    .card .list-info-name { height: 65%; font-size: 70%; }
+    .card a { font-size: 50%; }
+}
+@media (max-width: 190px) {
+    .card .list-info-name { font-size: 6px; }
+    .card a { font-size: 6px; }
+}

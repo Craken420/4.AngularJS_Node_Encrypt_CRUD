@@ -18,7 +18,7 @@
                 data-ng-model="search" class="form-control" />
         </div>
         <br/>
-        <div class="container"></div>
+        <div class="box">
             <div class="list-container" data-ng-if="filteredData.length > 0">
                 <ul data-ng-repeat="item in filteredData" class="contact-list bg-primary">
                     <li class="contact-list">
@@ -39,12 +39,12 @@
                     </li>
                 </ul>
             </div>
-            <pagination
-                ng-model="currentPage"
-                total-items="totalItems"
-                max-size="maxSize"
-                boundary-links="true">
-            </pagination>
         </div>
+        <pagination
+            ng-model="currentPage"
+            total-items="totalItems"
+            max-size="maxSize"
+            boundary-links="true">
+        </pagination>
     </div>
 </div>
