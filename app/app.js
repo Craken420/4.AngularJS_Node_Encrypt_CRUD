@@ -1,6 +1,8 @@
 angular.module('plunkerApp',[
     'ngRoute', // Adding `angular-route.js`
-    'ui.bootstrap'
+    'ui.bootstrap',
+    'keepr', // Adding `angular-keepr.js`,
+    'mdo-angular-cryptography'
 ])
 .config(function ( $locationProvider) {
     $locationProvider.html5Mode(true);
@@ -17,6 +19,12 @@ angular.module('plunkerApp',[
             templateUrl: 'views/new.html',
             controller: 'ContactsCtrl'
         })
+        // Update a contact
+        .when('/contacts/:id/edit', {
+            templateUrl: 'views/edit.html',
+            controller: 'ContactsCtrl',
+            method: 'edit'
+          })
         // Redirect to main route
         .otherwise({
           redirectTo: '/'
